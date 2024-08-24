@@ -1,0 +1,22 @@
+name: serializable
+version: 0.1.0
+
+authors:
+  - Jamie Gaskins <jgaskins@hey.com>
+
+development_dependencies:
+  # Needed for testing, but in a real-world app these would live in either the
+  # app or the shard that is performing the serialization and deserialization.
+  msgpack:
+    github: jgaskins/msgpack-crystal
+    branch: serializable-unified
+  db:
+    github: crystal-lang/crystal-db
+  pg:
+    github: will/crystal-pg
+  serializable:
+    path: .
+
+crystal: '>= 1.13.2'
+
+license: MIT
