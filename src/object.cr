@@ -1,6 +1,10 @@
 module Serializable::Object
   macro included
     # JSON
+    def self.new(json : ::JSON::PullParser)
+      new_from_json_pull_parser json
+    end
+
     def self.from_json(input : String | IO)
       new_from_json_pull_parser ::JSON::PullParser.new(input)
     end
@@ -13,6 +17,10 @@ module Serializable::Object
     end
 
     # MessagePack
+    def self.new(msgpack : ::MessagePack::Unpacker)
+      new_from_msgpack_unpacker msgpack
+    end
+
     def self.from_msgpack(input : String | IO | Bytes)
       new_from_msgpack_unpacker ::MessagePack::IOUnpacker.new(input)
     end
